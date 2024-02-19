@@ -58,7 +58,7 @@ namespace SimpleMovementWRotate
         {
             //Elapsed time since last update will be used to correct movement speed
             time = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-
+            
             //Time corrected move. MOves Sprite By Div every Second
             this.Location = this.Location + ((this.Direction * this.Speed) * (time / 1000));      //Simple Move PacMan by PacManDir
 
