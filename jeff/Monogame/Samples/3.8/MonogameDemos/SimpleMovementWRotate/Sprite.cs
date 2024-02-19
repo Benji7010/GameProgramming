@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,7 +72,7 @@ namespace SimpleMovementWRotate
         public virtual void Draw(SpriteBatch spriteBatch)  //association
         {
 
-            
+
             spriteBatch.Draw(this.Texture,  //texture2D
                 new Rectangle(        //Create rectange to draw to
                     (int)this.Location.X,
@@ -80,7 +81,7 @@ namespace SimpleMovementWRotate
                     (int)(this.Texture.Height)),
                 null,   //no source rectangle
                 Color.White,
-                MathHelper.ToRadians(this.Rotate), //rotation in radians
+                this.Rotate, //rotation in radians
                 this.Orgin,   //0,0 is top left
                 SpriteEffects.None,
                 0);
