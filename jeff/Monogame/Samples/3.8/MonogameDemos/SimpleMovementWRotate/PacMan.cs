@@ -27,7 +27,7 @@ namespace SimpleMovementWRotate
             //updated direction
             UpdateKeyboardInput();
 
-            Direction = new Vector2((float)Math.Cos(MathHelper.ToRadians(90) - Rotate), -(float)Math.Sin(MathHelper.ToRadians(90) - Rotate));
+            Direction = new Vector2((float)Math.Cos(MathHelper.ToRadians(0) - Rotate), -(float)Math.Sin(MathHelper.ToRadians(0) - Rotate));
 
             ////Angle in radians from vector2
             //RotationAngleKey = (float)System.Math.Atan2(
@@ -48,7 +48,7 @@ namespace SimpleMovementWRotate
             if ((this.Location.X > this.game.GraphicsDevice.Viewport.Width - this.Texture.Width)
                 || (this.Location.X < 0))
             {
-                this.Direction *= new Vector2(-1, 0);
+                this.Direction *= new Vector2(-1, 1);
             }
             if ((this.Location.Y > this.game.GraphicsDevice.Viewport.Height - this.Texture.Height)
                 || (this.Location.Y < 0))
@@ -60,7 +60,11 @@ namespace SimpleMovementWRotate
         private void UpdatePacmanSpeed()
         {
             //Speed for next frame
-            if (Keyboard.GetState().GetPressedKeys().Length > 0)
+            if (Keyboard.GetState().IsKeyDown(Keys.Down))
+            {
+                this.Speed = -200;
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.Up))
             {
                 this.Speed = 200;
             }
